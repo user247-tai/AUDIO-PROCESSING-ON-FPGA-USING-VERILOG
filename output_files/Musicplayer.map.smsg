@@ -1,0 +1,4 @@
+Warning (10268): Verilog HDL information at AudioOutputTest.v(349): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at AudioInit.v(49): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at AudioDac.v(8): object "done" differs only in case from object "DONE" in the same scope
+Info (10281): Verilog HDL Declaration information at AudioADC.v(7): object "done" differs only in case from object "DONE" in the same scope

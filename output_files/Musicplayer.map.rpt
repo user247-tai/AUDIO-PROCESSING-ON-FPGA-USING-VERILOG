@@ -1,0 +1,1080 @@
+Analysis & Synthesis report for Musicplayer
+Mon Dec 25 13:20:32 2023
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |AudioOutputTest|AudioADC:myADC|s
+  9. State Machine - |AudioOutputTest|AudioDAC:myDAC|s
+ 10. State Machine - |AudioOutputTest|AudioInit:myAudioInit|i2c:myI2c|errorReg
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |AudioOutputTest
+ 17. Parameter Settings for User Entity Instance: AudioInit:myAudioInit
+ 18. Parameter Settings for User Entity Instance: AudioDAC:myDAC
+ 19. Parameter Settings for User Entity Instance: AudioADC:myADC
+ 20. Parameter Settings for Inferred Entity Instance: HighPassFilter:highPassFilter|lpm_divide:Div3
+ 21. Parameter Settings for Inferred Entity Instance: HighPassFilter:highPassFilter|lpm_divide:Div2
+ 22. Parameter Settings for Inferred Entity Instance: LowPassFilter:lowPassFilter|lpm_divide:Div2
+ 23. Parameter Settings for Inferred Entity Instance: LowPassFilter:lowPassFilter|lpm_divide:Div3
+ 24. Parameter Settings for Inferred Entity Instance: HighPassFilter:myHighPass2|lpm_divide:Div3
+ 25. Parameter Settings for Inferred Entity Instance: HighPassFilter:myHighPass2|lpm_divide:Div2
+ 26. Parameter Settings for Inferred Entity Instance: LowPassFilter:lowPassFilter|lpm_divide:Div0
+ 27. Parameter Settings for Inferred Entity Instance: HighPassFilter:highPassFilter|lpm_divide:Div1
+ 28. Parameter Settings for Inferred Entity Instance: HighPassFilter:highPassFilter|lpm_divide:Div0
+ 29. Parameter Settings for Inferred Entity Instance: LowPassFilter:lowPassFilter|lpm_divide:Div1
+ 30. Parameter Settings for Inferred Entity Instance: HighPassFilter:myHighPass2|lpm_divide:Div1
+ 31. Parameter Settings for Inferred Entity Instance: HighPassFilter:myHighPass2|lpm_divide:Div0
+ 32. Port Connectivity Checks: "AudioADC:myADC"
+ 33. Port Connectivity Checks: "AudioDAC:myDAC"
+ 34. Port Connectivity Checks: "AudioInit:myAudioInit|i2c:myI2c"
+ 35. Port Connectivity Checks: "AudioInit:myAudioInit"
+ 36. Elapsed Time Per Partition
+ 37. Analysis & Synthesis Messages
+ 38. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Dec 25 13:20:32 2023           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; Musicplayer                                     ;
+; Top-level Entity Name              ; AudioOutputTest                                 ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 3,778                                           ;
+;     Total combinational functions  ; 3,681                                           ;
+;     Dedicated logic registers      ; 527                                             ;
+; Total registers                    ; 527                                             ;
+; Total pins                         ; 47                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; AudioOutputTest    ; Musicplayer        ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 12     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                              ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                          ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+---------+
+; Visualizer.v                     ; yes             ; User Verilog HDL File        ; D:/Verilog/Project_Class2/Visualizer.v                                ;         ;
+; output7Seg.v                     ; yes             ; User Verilog HDL File        ; D:/Verilog/Project_Class2/output7Seg.v                                ;         ;
+; LowPassFilter.v                  ; yes             ; User Verilog HDL File        ; D:/Verilog/Project_Class2/LowPassFilter.v                             ;         ;
+; i2c.v                            ; yes             ; User Verilog HDL File        ; D:/Verilog/Project_Class2/i2c.v                                       ;         ;
+; HighPassFilter.v                 ; yes             ; User Verilog HDL File        ; D:/Verilog/Project_Class2/HighPassFilter.v                            ;         ;
+; Debouncer.v                      ; yes             ; User Verilog HDL File        ; D:/Verilog/Project_Class2/Debouncer.v                                 ;         ;
+; AudioOutputTest.v                ; yes             ; User Verilog HDL File        ; D:/Verilog/Project_Class2/AudioOutputTest.v                           ;         ;
+; AudioInit.v                      ; yes             ; User Verilog HDL File        ; D:/Verilog/Project_Class2/AudioInit.v                                 ;         ;
+; AudioDac.v                       ; yes             ; User Verilog HDL File        ; D:/Verilog/Project_Class2/AudioDac.v                                  ;         ;
+; AudioADC.v                       ; yes             ; User Verilog HDL File        ; D:/Verilog/Project_Class2/AudioADC.v                                  ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc      ;         ;
+; db/lpm_divide_5so.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Verilog/Project_Class2/db/lpm_divide_5so.tdf                       ;         ;
+; db/abs_divider_ibg.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Verilog/Project_Class2/db/abs_divider_ibg.tdf                      ;         ;
+; db/alt_u_div_g2f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Verilog/Project_Class2/db/alt_u_div_g2f.tdf                        ;         ;
+; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Verilog/Project_Class2/db/add_sub_lkc.tdf                          ;         ;
+; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Verilog/Project_Class2/db/add_sub_mkc.tdf                          ;         ;
+; db/lpm_abs_eq9.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Verilog/Project_Class2/db/lpm_abs_eq9.tdf                          ;         ;
+; db/lpm_abs_0s9.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Verilog/Project_Class2/db/lpm_abs_0s9.tdf                          ;         ;
+; db/lpm_divide_7so.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Verilog/Project_Class2/db/lpm_divide_7so.tdf                       ;         ;
+; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Verilog/Project_Class2/db/abs_divider_kbg.tdf                      ;         ;
+; db/alt_u_div_k2f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Verilog/Project_Class2/db/alt_u_div_k2f.tdf                        ;         ;
+; db/lpm_abs_gq9.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Verilog/Project_Class2/db/lpm_abs_gq9.tdf                          ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 3,778 ;
+;                                             ;       ;
+; Total combinational functions               ; 3681  ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 1009  ;
+;     -- 3 input functions                    ; 1117  ;
+;     -- <=2 input functions                  ; 1555  ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 2304  ;
+;     -- arithmetic mode                      ; 1377  ;
+;                                             ;       ;
+; Total registers                             ; 527   ;
+;     -- Dedicated logic registers            ; 527   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 47    ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; rst   ;
+; Maximum fan-out                             ; 313   ;
+; Total fan-out                               ; 12082 ;
+; Average fan-out                             ; 2.84  ;
++---------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                               ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                         ; Library Name ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |AudioOutputTest                         ; 3681 (182)        ; 527 (36)     ; 0           ; 0            ; 0       ; 0         ; 47   ; 0            ; |AudioOutputTest                                                                                                                            ; work         ;
+;    |AudioADC:myADC|                      ; 58 (58)           ; 73 (73)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|AudioADC:myADC                                                                                                             ; work         ;
+;    |AudioDAC:myDAC|                      ; 32 (32)           ; 40 (40)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|AudioDAC:myDAC                                                                                                             ; work         ;
+;    |AudioInit:myAudioInit|               ; 126 (37)          ; 48 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|AudioInit:myAudioInit                                                                                                      ; work         ;
+;       |i2c:myI2c|                        ; 89 (89)           ; 30 (30)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|AudioInit:myAudioInit|i2c:myI2c                                                                                            ; work         ;
+;    |Debouncer:sw0D|                      ; 49 (49)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|Debouncer:sw0D                                                                                                             ; work         ;
+;    |Debouncer:sw1D|                      ; 49 (49)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|Debouncer:sw1D                                                                                                             ; work         ;
+;    |Debouncer:sw2D|                      ; 49 (49)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|Debouncer:sw2D                                                                                                             ; work         ;
+;    |Debouncer:sw3D|                      ; 49 (49)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|Debouncer:sw3D                                                                                                             ; work         ;
+;    |Debouncer:sw4D|                      ; 49 (49)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|Debouncer:sw4D                                                                                                             ; work         ;
+;    |HighPassFilter:highPassFilter|       ; 956 (66)          ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter                                                                                              ; work         ;
+;       |lpm_divide:Div0|                  ; 216 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div0                                                                              ; work         ;
+;          |lpm_divide_5so:auto_generated| ; 216 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div0|lpm_divide_5so:auto_generated                                                ; work         ;
+;             |abs_divider_ibg:divider|    ; 216 (32)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div0|lpm_divide_5so:auto_generated|abs_divider_ibg:divider                        ; work         ;
+;                |alt_u_div_g2f:divider|   ; 163 (163)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div0|lpm_divide_5so:auto_generated|abs_divider_ibg:divider|alt_u_div_g2f:divider  ; work         ;
+;                |lpm_abs_0s9:my_abs_num|  ; 21 (21)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div0|lpm_divide_5so:auto_generated|abs_divider_ibg:divider|lpm_abs_0s9:my_abs_num ; work         ;
+;       |lpm_divide:Div1|                  ; 229 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div1                                                                              ; work         ;
+;          |lpm_divide_5so:auto_generated| ; 229 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div1|lpm_divide_5so:auto_generated                                                ; work         ;
+;             |abs_divider_ibg:divider|    ; 229 (32)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div1|lpm_divide_5so:auto_generated|abs_divider_ibg:divider                        ; work         ;
+;                |alt_u_div_g2f:divider|   ; 174 (174)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div1|lpm_divide_5so:auto_generated|abs_divider_ibg:divider|alt_u_div_g2f:divider  ; work         ;
+;                |lpm_abs_0s9:my_abs_num|  ; 23 (23)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div1|lpm_divide_5so:auto_generated|abs_divider_ibg:divider|lpm_abs_0s9:my_abs_num ; work         ;
+;       |lpm_divide:Div2|                  ; 216 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div2                                                                              ; work         ;
+;          |lpm_divide_5so:auto_generated| ; 216 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div2|lpm_divide_5so:auto_generated                                                ; work         ;
+;             |abs_divider_ibg:divider|    ; 216 (32)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div2|lpm_divide_5so:auto_generated|abs_divider_ibg:divider                        ; work         ;
+;                |alt_u_div_g2f:divider|   ; 163 (163)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div2|lpm_divide_5so:auto_generated|abs_divider_ibg:divider|alt_u_div_g2f:divider  ; work         ;
+;                |lpm_abs_0s9:my_abs_num|  ; 21 (21)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div2|lpm_divide_5so:auto_generated|abs_divider_ibg:divider|lpm_abs_0s9:my_abs_num ; work         ;
+;       |lpm_divide:Div3|                  ; 229 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div3                                                                              ; work         ;
+;          |lpm_divide_5so:auto_generated| ; 229 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div3|lpm_divide_5so:auto_generated                                                ; work         ;
+;             |abs_divider_ibg:divider|    ; 229 (32)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div3|lpm_divide_5so:auto_generated|abs_divider_ibg:divider                        ; work         ;
+;                |alt_u_div_g2f:divider|   ; 174 (174)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div3|lpm_divide_5so:auto_generated|abs_divider_ibg:divider|alt_u_div_g2f:divider  ; work         ;
+;                |lpm_abs_0s9:my_abs_num|  ; 23 (23)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:highPassFilter|lpm_divide:Div3|lpm_divide_5so:auto_generated|abs_divider_ibg:divider|lpm_abs_0s9:my_abs_num ; work         ;
+;    |HighPassFilter:myHighPass2|          ; 963 (67)          ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2                                                                                                 ; work         ;
+;       |lpm_divide:Div0|                  ; 216 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div0                                                                                 ; work         ;
+;          |lpm_divide_5so:auto_generated| ; 216 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div0|lpm_divide_5so:auto_generated                                                   ; work         ;
+;             |abs_divider_ibg:divider|    ; 216 (32)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div0|lpm_divide_5so:auto_generated|abs_divider_ibg:divider                           ; work         ;
+;                |alt_u_div_g2f:divider|   ; 163 (163)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div0|lpm_divide_5so:auto_generated|abs_divider_ibg:divider|alt_u_div_g2f:divider     ; work         ;
+;                |lpm_abs_0s9:my_abs_num|  ; 21 (21)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div0|lpm_divide_5so:auto_generated|abs_divider_ibg:divider|lpm_abs_0s9:my_abs_num    ; work         ;
+;       |lpm_divide:Div1|                  ; 232 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div1                                                                                 ; work         ;
+;          |lpm_divide_5so:auto_generated| ; 232 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div1|lpm_divide_5so:auto_generated                                                   ; work         ;
+;             |abs_divider_ibg:divider|    ; 232 (32)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div1|lpm_divide_5so:auto_generated|abs_divider_ibg:divider                           ; work         ;
+;                |alt_u_div_g2f:divider|   ; 174 (174)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div1|lpm_divide_5so:auto_generated|abs_divider_ibg:divider|alt_u_div_g2f:divider     ; work         ;
+;                |lpm_abs_0s9:my_abs_num|  ; 26 (26)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div1|lpm_divide_5so:auto_generated|abs_divider_ibg:divider|lpm_abs_0s9:my_abs_num    ; work         ;
+;       |lpm_divide:Div2|                  ; 216 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div2                                                                                 ; work         ;
+;          |lpm_divide_5so:auto_generated| ; 216 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div2|lpm_divide_5so:auto_generated                                                   ; work         ;
+;             |abs_divider_ibg:divider|    ; 216 (32)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div2|lpm_divide_5so:auto_generated|abs_divider_ibg:divider                           ; work         ;
+;                |alt_u_div_g2f:divider|   ; 163 (163)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div2|lpm_divide_5so:auto_generated|abs_divider_ibg:divider|alt_u_div_g2f:divider     ; work         ;
+;                |lpm_abs_0s9:my_abs_num|  ; 21 (21)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div2|lpm_divide_5so:auto_generated|abs_divider_ibg:divider|lpm_abs_0s9:my_abs_num    ; work         ;
+;       |lpm_divide:Div3|                  ; 232 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div3                                                                                 ; work         ;
+;          |lpm_divide_5so:auto_generated| ; 232 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div3|lpm_divide_5so:auto_generated                                                   ; work         ;
+;             |abs_divider_ibg:divider|    ; 232 (32)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div3|lpm_divide_5so:auto_generated|abs_divider_ibg:divider                           ; work         ;
+;                |alt_u_div_g2f:divider|   ; 174 (174)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div3|lpm_divide_5so:auto_generated|abs_divider_ibg:divider|alt_u_div_g2f:divider     ; work         ;
+;                |lpm_abs_0s9:my_abs_num|  ; 26 (26)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|HighPassFilter:myHighPass2|lpm_divide:Div3|lpm_divide_5so:auto_generated|abs_divider_ibg:divider|lpm_abs_0s9:my_abs_num    ; work         ;
+;    |LowPassFilter:lowPassFilter|         ; 1056 (58)         ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter                                                                                                ; work         ;
+;       |lpm_divide:Div0|                  ; 249 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div0                                                                                ; work         ;
+;          |lpm_divide_7so:auto_generated| ; 249 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div0|lpm_divide_7so:auto_generated                                                  ; work         ;
+;             |abs_divider_kbg:divider|    ; 249 (32)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div0|lpm_divide_7so:auto_generated|abs_divider_kbg:divider                          ; work         ;
+;                |alt_u_div_k2f:divider|   ; 197 (197)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div0|lpm_divide_7so:auto_generated|abs_divider_kbg:divider|alt_u_div_k2f:divider    ; work         ;
+;                |lpm_abs_0s9:my_abs_num|  ; 20 (20)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div0|lpm_divide_7so:auto_generated|abs_divider_kbg:divider|lpm_abs_0s9:my_abs_num   ; work         ;
+;       |lpm_divide:Div1|                  ; 250 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div1                                                                                ; work         ;
+;          |lpm_divide_7so:auto_generated| ; 250 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div1|lpm_divide_7so:auto_generated                                                  ; work         ;
+;             |abs_divider_kbg:divider|    ; 250 (32)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div1|lpm_divide_7so:auto_generated|abs_divider_kbg:divider                          ; work         ;
+;                |alt_u_div_k2f:divider|   ; 197 (197)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div1|lpm_divide_7so:auto_generated|abs_divider_kbg:divider|alt_u_div_k2f:divider    ; work         ;
+;                |lpm_abs_0s9:my_abs_num|  ; 21 (21)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div1|lpm_divide_7so:auto_generated|abs_divider_kbg:divider|lpm_abs_0s9:my_abs_num   ; work         ;
+;       |lpm_divide:Div2|                  ; 249 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div2                                                                                ; work         ;
+;          |lpm_divide_7so:auto_generated| ; 249 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div2|lpm_divide_7so:auto_generated                                                  ; work         ;
+;             |abs_divider_kbg:divider|    ; 249 (32)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div2|lpm_divide_7so:auto_generated|abs_divider_kbg:divider                          ; work         ;
+;                |alt_u_div_k2f:divider|   ; 197 (197)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div2|lpm_divide_7so:auto_generated|abs_divider_kbg:divider|alt_u_div_k2f:divider    ; work         ;
+;                |lpm_abs_0s9:my_abs_num|  ; 20 (20)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div2|lpm_divide_7so:auto_generated|abs_divider_kbg:divider|lpm_abs_0s9:my_abs_num   ; work         ;
+;       |lpm_divide:Div3|                  ; 250 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div3                                                                                ; work         ;
+;          |lpm_divide_7so:auto_generated| ; 250 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div3|lpm_divide_7so:auto_generated                                                  ; work         ;
+;             |abs_divider_kbg:divider|    ; 250 (32)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div3|lpm_divide_7so:auto_generated|abs_divider_kbg:divider                          ; work         ;
+;                |alt_u_div_k2f:divider|   ; 197 (197)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div3|lpm_divide_7so:auto_generated|abs_divider_kbg:divider|alt_u_div_k2f:divider    ; work         ;
+;                |lpm_abs_0s9:my_abs_num|  ; 21 (21)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|LowPassFilter:lowPassFilter|lpm_divide:Div3|lpm_divide_7so:auto_generated|abs_divider_kbg:divider|lpm_abs_0s9:my_abs_num   ; work         ;
+;    |Visualizer:myVisual1|                ; 49 (49)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|Visualizer:myVisual1                                                                                                       ; work         ;
+;    |output7Seg:i2cError7|                ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|output7Seg:i2cError7                                                                                                       ; work         ;
+;    |output7Seg:my7|                      ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioOutputTest|output7Seg:my7                                                                                                             ; work         ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------+
+; State Machine - |AudioOutputTest|AudioADC:myADC|s    ;
++---------+--------+--------+--------+---------+-------+
+; Name    ; s.DONE ; s.BITS ; s.WAIT ; s.START ; s.BAD ;
++---------+--------+--------+--------+---------+-------+
+; s.START ; 0      ; 0      ; 0      ; 0       ; 0     ;
+; s.WAIT  ; 0      ; 0      ; 1      ; 1       ; 0     ;
+; s.BITS  ; 0      ; 1      ; 0      ; 1       ; 0     ;
+; s.DONE  ; 1      ; 0      ; 0      ; 1       ; 0     ;
+; s.BAD   ; 0      ; 0      ; 0      ; 1       ; 1     ;
++---------+--------+--------+--------+---------+-------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------+
+; State Machine - |AudioOutputTest|AudioDAC:myDAC|s    ;
++---------+--------+--------+--------+---------+-------+
+; Name    ; s.DONE ; s.BITS ; s.WAIT ; s.START ; s.BAD ;
++---------+--------+--------+--------+---------+-------+
+; s.START ; 0      ; 0      ; 0      ; 0       ; 0     ;
+; s.WAIT  ; 0      ; 0      ; 1      ; 1       ; 0     ;
+; s.BITS  ; 0      ; 1      ; 0      ; 1       ; 0     ;
+; s.DONE  ; 1      ; 0      ; 0      ; 1       ; 0     ;
+; s.BAD   ; 0      ; 0      ; 0      ; 1       ; 1     ;
++---------+--------+--------+--------+---------+-------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |AudioOutputTest|AudioInit:myAudioInit|i2c:myI2c|errorReg                                                     ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+; Name          ; errorReg.0101 ; errorReg.0100 ; errorReg.0011 ; errorReg.0010 ; errorReg.0001 ; errorReg.0000 ; errorReg.1111 ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+; errorReg.0000 ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ;
+; errorReg.0001 ; 0             ; 0             ; 0             ; 0             ; 1             ; 1             ; 0             ;
+; errorReg.0010 ; 0             ; 0             ; 0             ; 1             ; 0             ; 1             ; 0             ;
+; errorReg.0011 ; 0             ; 0             ; 1             ; 0             ; 0             ; 1             ; 0             ;
+; errorReg.0100 ; 0             ; 1             ; 0             ; 0             ; 0             ; 1             ; 0             ;
+; errorReg.0101 ; 1             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ;
+; errorReg.1111 ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 1             ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                           ;
++-----------------------------------------------+----------------------------------------------+
+; Register name                                 ; Reason for Removal                           ;
++-----------------------------------------------+----------------------------------------------+
+; AudioInit:myAudioInit|REGISTERS[5][0]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|doneInit                ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[0][8]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[0][7]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[0][6]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[0][5]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[0][4]              ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[0][3]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[0][2]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[0][1]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[0][0]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[1][8]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[1][7]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[1][6]              ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[1][5]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[1][4]              ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[1][3]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[1][2]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[1][1]              ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[1][0]              ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[2][8]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[2][7]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[2][6]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[2][5]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[2][4]              ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[2][3]              ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[2][2]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[2][1]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[2][0]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[3][8]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[3][7]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[3][6]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[3][5]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[3][4]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[3][3]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[3][2]              ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[3][1]              ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[3][0]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[4][8]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[4][7]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[4][6]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[4][5]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[4][4]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[4][3]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[4][2]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[4][1]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[4][0]              ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[5][8]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[5][7]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[5][6]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[5][5]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[5][4]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[5][3]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[5][2]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[5][1]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|DATA[5][0]              ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[0][6]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[0][5]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[0][4]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[0][3]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[0][2]         ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[0][1]         ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[0][0]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[1][6]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[1][5]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[1][4]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[1][3]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[1][2]         ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[1][1]         ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[1][0]         ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[2][6]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[2][5]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[2][4]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[2][3]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[2][2]         ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[2][1]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[2][0]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[3][6]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[3][5]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[3][4]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[3][3]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[3][2]         ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[3][1]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[3][0]         ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[4][6]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[4][5]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[4][4]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[4][3]         ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[4][2]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[4][1]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[4][0]         ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[5][6]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[5][5]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[5][4]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[5][3]         ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[5][2]         ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|REGISTERS[5][1]         ; Stuck at VCC due to stuck port data_in       ;
+; AudioInit:myAudioInit|i2cData[5]              ; Merged with AudioInit:myAudioInit|i2cData[8] ;
+; AudioInit:myAudioInit|i2cRegister[6]          ; Merged with AudioInit:myAudioInit|i2cData[8] ;
+; AudioInit:myAudioInit|i2cData[7]              ; Merged with AudioInit:myAudioInit|i2cData[8] ;
+; AudioInit:myAudioInit|i2cRegister[4,5]        ; Merged with AudioInit:myAudioInit|i2cData[8] ;
+; s[3]                                          ; Stuck at GND due to stuck port data_in       ;
+; AudioInit:myAudioInit|i2cData[8]              ; Stuck at GND due to stuck port data_in       ;
+; AudioADC:myADC|s~4                            ; Lost fanout                                  ;
+; AudioADC:myADC|s~5                            ; Lost fanout                                  ;
+; AudioADC:myADC|s~7                            ; Lost fanout                                  ;
+; AudioDAC:myDAC|s~4                            ; Lost fanout                                  ;
+; AudioDAC:myDAC|s~5                            ; Lost fanout                                  ;
+; AudioDAC:myDAC|s~7                            ; Lost fanout                                  ;
+; AudioInit:myAudioInit|i2c:myI2c|errorReg~8    ; Lost fanout                                  ;
+; AudioInit:myAudioInit|i2c:myI2c|errorReg~9    ; Lost fanout                                  ;
+; AudioInit:myAudioInit|i2c:myI2c|errorReg~10   ; Lost fanout                                  ;
+; AudioADC:myADC|s.BAD                          ; Lost fanout                                  ;
+; AudioDAC:myDAC|s.BAD                          ; Lost fanout                                  ;
+; AudioInit:myAudioInit|i2c:myI2c|errorReg.0001 ; Lost fanout                                  ;
+; AudioDAC:myDAC|s.START                        ; Merged with AudioADC:myADC|s.START           ;
+; AudioInit:myAudioInit|currentInit[3]          ; Stuck at GND due to stuck port data_in       ;
+; Total Number of Removed Registers = 118       ;                                              ;
++-----------------------------------------------+----------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                           ;
++----------------------------------+---------------------------+----------------------------------------+
+; Register name                    ; Reason for Removal        ; Registers Removed due to This Register ;
++----------------------------------+---------------------------+----------------------------------------+
+; AudioInit:myAudioInit|DATA[0][8] ; Stuck at GND              ; AudioInit:myAudioInit|i2cData[8]       ;
+;                                  ; due to stuck port data_in ;                                        ;
++----------------------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 527   ;
+; Number of registers using Synchronous Clear  ; 163   ;
+; Number of registers using Synchronous Load   ; 12    ;
+; Number of registers using Asynchronous Clear ; 311   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 420   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; AudioDAC:myDAC|countDACBits[1]          ; 10      ;
+; AudioDAC:myDAC|countDACBits[0]          ; 9       ;
+; AudioDAC:myDAC|countDACBits[3]          ; 10      ;
+; AudioDAC:myDAC|countDACBits[2]          ; 9       ;
+; AudioDAC:myDAC|countDACBits[4]          ; 4       ;
+; AudioADC:myADC|countADCBits[4]          ; 7       ;
+; AudioADC:myADC|countADCBits[3]          ; 7       ;
+; AudioADC:myADC|countADCBits[0]          ; 10      ;
+; AudioADC:myADC|countADCBits[1]          ; 10      ;
+; AudioADC:myADC|countADCBits[2]          ; 10      ;
+; Total number of inverted registers = 10 ;         ;
++-----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AudioOutputTest|audioClkCounter[25]                           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AudioOutputTest|Debouncer:sw1D|counter[10]                    ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AudioOutputTest|Debouncer:sw2D|counter[11]                    ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AudioOutputTest|Debouncer:sw3D|counter[2]                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AudioOutputTest|Debouncer:sw4D|counter[19]                    ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AudioOutputTest|Debouncer:sw0D|counter[11]                    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |AudioOutputTest|s[2]                                          ;
+; 13:1               ; 5 bits    ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |AudioOutputTest|AudioInit:myAudioInit|i2cRegister[2]          ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |AudioOutputTest|AudioInit:myAudioInit|initState[2]            ;
+; 14:1               ; 6 bits    ; 54 LEs        ; 24 LEs               ; 30 LEs                 ; Yes        ; |AudioOutputTest|AudioInit:myAudioInit|i2cRegister[1]          ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |AudioOutputTest|AudioDAC:myDAC|countDACBits[3]                ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |AudioOutputTest|AudioADC:myADC|countADCBits[0]                ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; No         ; |AudioOutputTest|Mux27                                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |AudioOutputTest|AudioInit:myAudioInit|i2c:myI2c|errorReg.0000 ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |AudioOutputTest|AudioInit:myAudioInit|i2c:myI2c|errorReg.1111 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |AudioOutputTest ;
++---------------------+------------------+----------------------------------------+
+; Parameter Name      ; Value            ; Type                                   ;
++---------------------+------------------+----------------------------------------+
+; START               ; 0000             ; Unsigned Binary                        ;
+; INIT                ; 0001             ; Unsigned Binary                        ;
+; WAITBYPASSSWITCHON  ; 0010             ; Unsigned Binary                        ;
+; WAITBYPASSON        ; 0011             ; Unsigned Binary                        ;
+; WAITBYPASSSWITCHOFF ; 0100             ; Unsigned Binary                        ;
+; WAITBYPASSOFF       ; 0101             ; Unsigned Binary                        ;
+; ERRORSTATE          ; 1001             ; Unsigned Binary                        ;
+; tone                ; 0011101010011000 ; Signed Binary                          ;
++---------------------+------------------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AudioInit:myAudioInit ;
++----------------+---------+-----------------------------------------+
+; Parameter Name ; Value   ; Type                                    ;
++----------------+---------+-----------------------------------------+
+; ADDRESS        ; 0011010 ; Unsigned Binary                         ;
++----------------+---------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AudioDAC:myDAC ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; START          ; 0000  ; Unsigned Binary                    ;
+; WAIT           ; 0001  ; Unsigned Binary                    ;
+; BITS           ; 0010  ; Unsigned Binary                    ;
+; DONE           ; 0011  ; Unsigned Binary                    ;
+; BAD            ; 0100  ; Unsigned Binary                    ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AudioADC:myADC ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; START          ; 0000  ; Unsigned Binary                    ;
+; WAIT           ; 0001  ; Unsigned Binary                    ;
+; BITS           ; 0010  ; Unsigned Binary                    ;
+; DONE           ; 0011  ; Unsigned Binary                    ;
+; BAD            ; 0100  ; Unsigned Binary                    ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: HighPassFilter:highPassFilter|lpm_divide:Div3 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                              ;
+; LPM_WIDTHD             ; 3              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_5so ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: HighPassFilter:highPassFilter|lpm_divide:Div2 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                              ;
+; LPM_WIDTHD             ; 3              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_5so ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: LowPassFilter:lowPassFilter|lpm_divide:Div2 ;
++------------------------+----------------+----------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                               ;
++------------------------+----------------+----------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                            ;
+; LPM_WIDTHD             ; 5              ; Untyped                                            ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                            ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                                            ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                            ;
+; CBXI_PARAMETER         ; lpm_divide_7so ; Untyped                                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                     ;
++------------------------+----------------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: LowPassFilter:lowPassFilter|lpm_divide:Div3 ;
++------------------------+----------------+----------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                               ;
++------------------------+----------------+----------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                            ;
+; LPM_WIDTHD             ; 5              ; Untyped                                            ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                            ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                                            ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                            ;
+; CBXI_PARAMETER         ; lpm_divide_7so ; Untyped                                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                     ;
++------------------------+----------------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: HighPassFilter:myHighPass2|lpm_divide:Div3 ;
++------------------------+----------------+---------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                              ;
++------------------------+----------------+---------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                           ;
+; LPM_WIDTHD             ; 3              ; Untyped                                           ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                           ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                           ;
+; LPM_PIPELINE           ; 0              ; Untyped                                           ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                           ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                           ;
+; CBXI_PARAMETER         ; lpm_divide_5so ; Untyped                                           ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                           ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                           ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                    ;
++------------------------+----------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: HighPassFilter:myHighPass2|lpm_divide:Div2 ;
++------------------------+----------------+---------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                              ;
++------------------------+----------------+---------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                           ;
+; LPM_WIDTHD             ; 3              ; Untyped                                           ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                           ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                           ;
+; LPM_PIPELINE           ; 0              ; Untyped                                           ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                           ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                           ;
+; CBXI_PARAMETER         ; lpm_divide_5so ; Untyped                                           ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                           ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                           ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                    ;
++------------------------+----------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: LowPassFilter:lowPassFilter|lpm_divide:Div0 ;
++------------------------+----------------+----------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                               ;
++------------------------+----------------+----------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                            ;
+; LPM_WIDTHD             ; 5              ; Untyped                                            ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                            ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                                            ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                            ;
+; CBXI_PARAMETER         ; lpm_divide_7so ; Untyped                                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                     ;
++------------------------+----------------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: HighPassFilter:highPassFilter|lpm_divide:Div1 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                              ;
+; LPM_WIDTHD             ; 3              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_5so ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: HighPassFilter:highPassFilter|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                              ;
+; LPM_WIDTHD             ; 3              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_5so ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: LowPassFilter:lowPassFilter|lpm_divide:Div1 ;
++------------------------+----------------+----------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                               ;
++------------------------+----------------+----------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                            ;
+; LPM_WIDTHD             ; 5              ; Untyped                                            ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                            ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                                            ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                            ;
+; CBXI_PARAMETER         ; lpm_divide_7so ; Untyped                                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                     ;
++------------------------+----------------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: HighPassFilter:myHighPass2|lpm_divide:Div1 ;
++------------------------+----------------+---------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                              ;
++------------------------+----------------+---------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                           ;
+; LPM_WIDTHD             ; 3              ; Untyped                                           ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                           ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                           ;
+; LPM_PIPELINE           ; 0              ; Untyped                                           ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                           ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                           ;
+; CBXI_PARAMETER         ; lpm_divide_5so ; Untyped                                           ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                           ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                           ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                    ;
++------------------------+----------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: HighPassFilter:myHighPass2|lpm_divide:Div0 ;
++------------------------+----------------+---------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                              ;
++------------------------+----------------+---------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                           ;
+; LPM_WIDTHD             ; 3              ; Untyped                                           ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                           ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                           ;
+; LPM_PIPELINE           ; 0              ; Untyped                                           ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                           ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                           ;
+; CBXI_PARAMETER         ; lpm_divide_5so ; Untyped                                           ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                           ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                           ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                    ;
++------------------------+----------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AudioADC:myADC"                                                                     ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; done ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AudioDAC:myDAC"                                                                     ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; done ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "AudioInit:myAudioInit|i2c:myI2c" ;
++---------------+-------+----------+--------------------------+
+; Port          ; Type  ; Severity ; Details                  ;
++---------------+-------+----------+--------------------------+
+; address[4..3] ; Input ; Info     ; Stuck at VCC             ;
+; address[6..5] ; Input ; Info     ; Stuck at GND             ;
+; address[2]    ; Input ; Info     ; Stuck at GND             ;
+; address[1]    ; Input ; Info     ; Stuck at VCC             ;
+; address[0]    ; Input ; Info     ; Stuck at GND             ;
+; rw            ; Input ; Info     ; Stuck at GND             ;
++---------------+-------+----------+--------------------------+
+
+
++--------------------------------------------------------+
+; Port Connectivity Checks: "AudioInit:myAudioInit"      ;
++----------------------+-------+----------+--------------+
+; Port                 ; Type  ; Severity ; Details      ;
++----------------------+-------+----------+--------------+
+; manualRegister[6..3] ; Input ; Info     ; Stuck at GND ;
+; manualRegister[1]    ; Input ; Info     ; Stuck at GND ;
+; manualData[8..5]     ; Input ; Info     ; Stuck at GND ;
++----------------------+-------+----------+--------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon Dec 25 13:20:25 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Musicplayer -c Musicplayer
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file visualizer.v
+    Info (12023): Found entity 1: Visualizer
+Info (12021): Found 1 design units, including 1 entities, in source file output7seg.v
+    Info (12023): Found entity 1: output7Seg
+Info (12021): Found 1 design units, including 1 entities, in source file lowpassfilter.v
+    Info (12023): Found entity 1: LowPassFilter
+Info (12021): Found 1 design units, including 1 entities, in source file i2c.v
+    Info (12023): Found entity 1: i2c
+Info (12021): Found 1 design units, including 1 entities, in source file highpassfilter.v
+    Info (12023): Found entity 1: HighPassFilter
+Info (12021): Found 1 design units, including 1 entities, in source file debouncer.v
+    Info (12023): Found entity 1: Debouncer
+Info (12021): Found 1 design units, including 1 entities, in source file audiooutputtest.v
+    Info (12023): Found entity 1: AudioOutputTest
+Info (12021): Found 1 design units, including 1 entities, in source file audioinit.v
+    Info (12023): Found entity 1: AudioInit
+Info (12021): Found 1 design units, including 1 entities, in source file audiodac.v
+    Info (12023): Found entity 1: AudioDAC
+Info (12021): Found 1 design units, including 1 entities, in source file audioadc.v
+    Info (12023): Found entity 1: AudioADC
+Info (12127): Elaborating entity "AudioOutputTest" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at AudioOutputTest.v(345): object "DACIN" assigned a value but never read
+Info (10264): Verilog HDL Case Statement information at AudioOutputTest.v(185): all case item expressions in this case statement are onehot
+Info (12128): Elaborating entity "Debouncer" for hierarchy "Debouncer:sw0D"
+Info (12128): Elaborating entity "AudioInit" for hierarchy "AudioInit:myAudioInit"
+Info (12128): Elaborating entity "i2c" for hierarchy "AudioInit:myAudioInit|i2c:myI2c"
+Info (12128): Elaborating entity "AudioDAC" for hierarchy "AudioDAC:myDAC"
+Info (10264): Verilog HDL Case Statement information at AudioDac.v(40): all case item expressions in this case statement are onehot
+Info (12128): Elaborating entity "AudioADC" for hierarchy "AudioADC:myADC"
+Info (10264): Verilog HDL Case Statement information at AudioADC.v(39): all case item expressions in this case statement are onehot
+Info (12128): Elaborating entity "Visualizer" for hierarchy "Visualizer:myVisual1"
+Warning (10230): Verilog HDL assignment warning at Visualizer.v(20): truncated value with size 32 to match size of target (16)
+Info (12128): Elaborating entity "LowPassFilter" for hierarchy "LowPassFilter:lowPassFilter"
+Info (12128): Elaborating entity "HighPassFilter" for hierarchy "HighPassFilter:highPassFilter"
+Info (12128): Elaborating entity "output7Seg" for hierarchy "output7Seg:my7"
+Info (278001): Inferred 12 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "HighPassFilter:highPassFilter|Div3"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "HighPassFilter:highPassFilter|Div2"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "LowPassFilter:lowPassFilter|Div2"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "LowPassFilter:lowPassFilter|Div3"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "HighPassFilter:myHighPass2|Div3"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "HighPassFilter:myHighPass2|Div2"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "LowPassFilter:lowPassFilter|Div0"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "HighPassFilter:highPassFilter|Div1"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "HighPassFilter:highPassFilter|Div0"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "LowPassFilter:lowPassFilter|Div1"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "HighPassFilter:myHighPass2|Div1"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "HighPassFilter:myHighPass2|Div0"
+Info (12130): Elaborated megafunction instantiation "HighPassFilter:highPassFilter|lpm_divide:Div3"
+Info (12133): Instantiated megafunction "HighPassFilter:highPassFilter|lpm_divide:Div3" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "3"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_5so.tdf
+    Info (12023): Found entity 1: lpm_divide_5so
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_ibg.tdf
+    Info (12023): Found entity 1: abs_divider_ibg
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_g2f.tdf
+    Info (12023): Found entity 1: alt_u_div_g2f
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_lkc.tdf
+    Info (12023): Found entity 1: add_sub_lkc
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_mkc.tdf
+    Info (12023): Found entity 1: add_sub_mkc
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_eq9.tdf
+    Info (12023): Found entity 1: lpm_abs_eq9
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_0s9.tdf
+    Info (12023): Found entity 1: lpm_abs_0s9
+Info (12130): Elaborated megafunction instantiation "LowPassFilter:lowPassFilter|lpm_divide:Div2"
+Info (12133): Instantiated megafunction "LowPassFilter:lowPassFilter|lpm_divide:Div2" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_7so.tdf
+    Info (12023): Found entity 1: lpm_divide_7so
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_kbg.tdf
+    Info (12023): Found entity 1: abs_divider_kbg
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_k2f.tdf
+    Info (12023): Found entity 1: alt_u_div_k2f
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_gq9.tdf
+    Info (12023): Found entity 1: lpm_abs_gq9
+Info (13014): Ignored 192 buffer(s)
+    Info (13016): Ignored 192 CARRY_SUM buffer(s)
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "Debouncer:sw1D|out" is converted into an equivalent circuit using register "Debouncer:sw1D|out~_emulated" and latch "Debouncer:sw1D|out~1"
+    Warning (13310): Register "Debouncer:sw2D|out" is converted into an equivalent circuit using register "Debouncer:sw2D|out~_emulated" and latch "Debouncer:sw2D|out~1"
+    Warning (13310): Register "Debouncer:sw4D|out" is converted into an equivalent circuit using register "Debouncer:sw4D|out~_emulated" and latch "Debouncer:sw4D|out~1"
+    Warning (13310): Register "Debouncer:sw3D|out" is converted into an equivalent circuit using register "Debouncer:sw3D|out~_emulated" and latch "Debouncer:sw3D|out~1"
+    Warning (13310): Register "Debouncer:sw1D|lastInp" is converted into an equivalent circuit using register "Debouncer:sw1D|lastInp~_emulated" and latch "Debouncer:sw1D|out~1"
+    Warning (13310): Register "Debouncer:sw0D|out" is converted into an equivalent circuit using register "Debouncer:sw0D|out~_emulated" and latch "Debouncer:sw0D|out~1"
+    Warning (13310): Register "Debouncer:sw2D|lastInp" is converted into an equivalent circuit using register "Debouncer:sw2D|lastInp~_emulated" and latch "Debouncer:sw2D|out~1"
+    Warning (13310): Register "Debouncer:sw4D|lastInp" is converted into an equivalent circuit using register "Debouncer:sw4D|lastInp~_emulated" and latch "Debouncer:sw4D|out~1"
+    Warning (13310): Register "Debouncer:sw3D|lastInp" is converted into an equivalent circuit using register "Debouncer:sw3D|lastInp~_emulated" and latch "Debouncer:sw3D|out~1"
+    Warning (13310): Register "Debouncer:sw0D|lastInp" is converted into an equivalent circuit using register "Debouncer:sw0D|lastInp~_emulated" and latch "Debouncer:sw0D|out~1"
+Info (17049): 12 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/Verilog/Project_Class2/output_files/Musicplayer.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 3954 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 35 output pins
+    Info (21060): Implemented 1 bidirectional pins
+    Info (21061): Implemented 3907 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 4653 megabytes
+    Info: Processing ended: Mon Dec 25 13:20:32 2023
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:04
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/Verilog/Project_Class2/output_files/Musicplayer.map.smsg.
+
+
