@@ -1,0 +1,133 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'AUD_BCLK'
+Slack : -87.605
+TNS   : -9949.632
+
+Type  : Slow Model Setup 'clk'
+Slack : -3.101
+TNS   : -607.259
+
+Type  : Slow Model Setup 'AudioInit:myAudioInit|i2c:myI2c|slowi2cclk'
+Slack : -3.023
+TNS   : -47.927
+
+Type  : Slow Model Hold 'clk'
+Slack : -2.561
+TNS   : -2.561
+
+Type  : Slow Model Hold 'AUD_BCLK'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Hold 'AudioInit:myAudioInit|i2c:myI2c|slowi2cclk'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'AudioInit:myAudioInit|i2c:myI2c|slowi2cclk'
+Slack : -0.664
+TNS   : -7.020
+
+Type  : Slow Model Recovery 'clk'
+Slack : -0.277
+TNS   : -3.160
+
+Type  : Slow Model Recovery 'AUD_BCLK'
+Slack : 0.485
+TNS   : 0.000
+
+Type  : Slow Model Removal 'AUD_BCLK'
+Slack : -1.285
+TNS   : -115.261
+
+Type  : Slow Model Removal 'clk'
+Slack : -0.072
+TNS   : -11.656
+
+Type  : Slow Model Removal 'AudioInit:myAudioInit|i2c:myI2c|slowi2cclk'
+Slack : 1.186
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'clk'
+Slack : -1.380
+TNS   : -235.380
+
+Type  : Slow Model Minimum Pulse Width 'AUD_BCLK'
+Slack : -1.222
+TNS   : -307.222
+
+Type  : Slow Model Minimum Pulse Width 'rst'
+Slack : -1.222
+TNS   : -1.222
+
+Type  : Slow Model Minimum Pulse Width 'AudioInit:myAudioInit|i2c:myI2c|slowi2cclk'
+Slack : -0.500
+TNS   : -19.000
+
+Type  : Fast Model Setup 'AUD_BCLK'
+Slack : -37.181
+TNS   : -4142.053
+
+Type  : Fast Model Setup 'clk'
+Slack : -0.895
+TNS   : -162.700
+
+Type  : Fast Model Setup 'AudioInit:myAudioInit|i2c:myI2c|slowi2cclk'
+Slack : -0.855
+TNS   : -12.003
+
+Type  : Fast Model Hold 'clk'
+Slack : -1.602
+TNS   : -1.602
+
+Type  : Fast Model Hold 'AUD_BCLK'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'AudioInit:myAudioInit|i2c:myI2c|slowi2cclk'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'AudioInit:myAudioInit|i2c:myI2c|slowi2cclk'
+Slack : 0.078
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'clk'
+Slack : 0.270
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'AUD_BCLK'
+Slack : 0.292
+TNS   : 0.000
+
+Type  : Fast Model Removal 'AUD_BCLK'
+Slack : -0.532
+TNS   : -42.785
+
+Type  : Fast Model Removal 'clk'
+Slack : -0.068
+TNS   : -10.956
+
+Type  : Fast Model Removal 'AudioInit:myAudioInit|i2c:myI2c|slowi2cclk'
+Slack : 0.703
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'clk'
+Slack : -1.380
+TNS   : -235.380
+
+Type  : Fast Model Minimum Pulse Width 'AUD_BCLK'
+Slack : -1.222
+TNS   : -307.222
+
+Type  : Fast Model Minimum Pulse Width 'rst'
+Slack : -1.222
+TNS   : -1.222
+
+Type  : Fast Model Minimum Pulse Width 'AudioInit:myAudioInit|i2c:myI2c|slowi2cclk'
+Slack : -0.500
+TNS   : -19.000
+
+------------------------------------------------------------
